@@ -18,7 +18,7 @@ knowledge0 = And( AKnave, Implication (AKnight, And(AKnight, AKnave)))
 # Puzzle 1
 # A says "We are both knaves."
 # B says nothing.
-knowledge1 = And(
+knowledge1 = And( AKnave, Implication(AKnight, And(AKnave, BKnave)), BKnight
     # TODO
 )
 
@@ -43,7 +43,7 @@ def main():
     symbols = [AKnight, AKnave, BKnight, BKnave, CKnight, CKnave]
     puzzles = [
         ("Puzzle 0", knowledge0),
-        # ("Puzzle 1", knowledge1),
+        ("Puzzle 1", knowledge1),
         # ("Puzzle 2", knowledge2),
         # ("Puzzle 3", knowledge3)
     ]
