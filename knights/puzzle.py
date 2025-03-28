@@ -65,14 +65,19 @@ knowledge3 = And(
     Or(CKnight, CKnave),
     Not(And(CKnight, CKnave)),
 
-    Implication(BKnight, Biconditional(AKnight, AKnave)), # b statement 1
+    # B's first statement: "A said 'I am a knave.'"
+    Implication(BKnight, Biconditional(AKnight, AKnave)),
 
-    Implication(BKnight, CKnave), # b statement 2, as b is false so C is a knight
+    # B's second statement: "C is a knave."
+    Implication(BKnight, CKnave),
+    Implication(BKnave, CKnight),
 
-    Implication(CKnight, AKnight) # CKnight is true meaning A is true (knight)
-
-
+    # C's statement: "A is a knight."
+    Implication(CKnight, AKnight)
 )
+
+
+
 
 
 
@@ -82,7 +87,7 @@ def main():
         ("Puzzle 0", knowledge0),
         ("Puzzle 1", knowledge1),
         ("Puzzle 2", knowledge2),
-        # ("Puzzle 3", knowledge3)
+        ("Puzzle 3", knowledge3)
     ]
     for puzzle, knowledge in puzzles:
         print(puzzle)
