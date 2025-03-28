@@ -53,16 +53,19 @@ knowledge2 = And(
 # B says "C is a knave."
 # C says "A is a knight."
 knowledge3 = And(
-    # TODO
-    Or(AKnight, AKnave), #A can only be one of these 2
-    Not(And(AKnight,AKnave))
+    # A can only be one of these two
+    Or(AKnight, AKnave),
+    Not(And(AKnight, AKnave)),
 
-    Or((BKnight, BKnave), #B can only be one of these 2
-    Not(And(BKnight,BKnave)))
+    # B can only be one of these two
+    Or(BKnight, BKnave),
+    Not(And(BKnight, BKnave)),
 
-    Or((CKnight, CKnave), #C can only be one of these 2
-    Not(And(CKnight,CKnave))
+    # C can only be one of these two
+    Or(CKnight, CKnave),
+    Not(And(CKnight, CKnave))
 )
+
 
 
 def main():
