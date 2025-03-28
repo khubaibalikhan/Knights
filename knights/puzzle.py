@@ -26,8 +26,26 @@ knowledge1 = And( AKnave, Implication(AKnight, And(AKnave, BKnave)), BKnight
 # A says "We are the same kind."
 # B says "We are of different kinds."
 knowledge2 = And(
-    # TODO
+    # A must be either a knight or a knave (but not both)
+    Or(AKnight, AKnave),
+    Not(And(AKnight, AKnave)),
+
+    # B must be either a knight or a knave (but not both)
+    Or(BKnight, BKnave),
+    Not(And(BKnight, BKnave)),
+
+    # If A is a knight, then A and B are the same (both knights or both knaves)
+    Implication(AKnight, Biconditional(AKnight, BKnight)),
+
+    # If A is a knave, then A and B are different (one knight, one knave)
+    Implication(AKnave, Not(Biconditional(AKnight, BKnight))),
+
+    # If B is a Knight, then A must be a Knave
+    Implication(BKnight, AKnave)
 )
+
+
+
 
 # Puzzle 3
 # A says either "I am a knight." or "I am a knave.", but you don't know which.
@@ -44,7 +62,7 @@ def main():
     puzzles = [
         ("Puzzle 0", knowledge0),
         ("Puzzle 1", knowledge1),
-        # ("Puzzle 2", knowledge2),
+        ("Puzzle 2", knowledge2),
         # ("Puzzle 3", knowledge3)
     ]
     for puzzle, knowledge in puzzles:
