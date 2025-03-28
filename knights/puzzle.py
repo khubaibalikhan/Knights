@@ -54,10 +54,12 @@ knowledge2 = And(
 # C says "A is a knight."
 knowledge3 = And(
     # TODO
-    Or(AKnight, AKnave), #A can only be one of these 2
-    Not(And(AKnight,AKnave))
+    Or((AKnight, AKnave), #A can only be one of these 2
+    Not(And(AKnight,AKnave)))
 
-
+    Or((BKnight, BKnave), #B can only be one of these 2
+    Not(And(BKnight,BKnave))
+    )
 )
 
 
