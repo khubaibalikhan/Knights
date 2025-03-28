@@ -65,8 +65,10 @@ knowledge3 = And(
     Or(CKnight, CKnave),
     Not(And(CKnight, CKnave)),
 
-    Implication(BKnight, Biconditional(AKnight, AKnave)) # b statement 1
+    Implication(BKnight, Biconditional(AKnight, AKnave)), # b statement 1
 
+    Implication(BKnight, CKnave) # b statement 2, as b is false so C is a knight
+    
 
 )
 
