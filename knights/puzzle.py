@@ -67,8 +67,10 @@ knowledge3 = And(
 
     Implication(BKnight, Biconditional(AKnight, AKnave)), # b statement 1
 
-    Implication(BKnight, CKnave) # b statement 2, as b is false so C is a knight
-    
+    Implication(BKnight, CKnave), # b statement 2, as b is false so C is a knight
+
+    Implication(CKnight, AKnight) # CKnight is true meaning A is true (knight)
+
 
 )
 
