@@ -63,7 +63,11 @@ knowledge3 = And(
 
     # C can only be one of these two
     Or(CKnight, CKnave),
-    Not(And(CKnight, CKnave))
+    Not(And(CKnight, CKnave)),
+
+    Implication(BKnight, Biconditional(AKnight, AKnave)) # b statement 1
+
+
 )
 
 
